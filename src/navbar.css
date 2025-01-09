@@ -1,0 +1,41 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+
+}
+:root{
+    --main-col-txt:#223867;
+    --main-bg-cl:#F8F8F8;
+    --sec-bg-cl:#2550AA;
+    --sec-bg-cl:#007AFF;
+    --white-txt-col:#FFF;
+
+}
+body{
+    background-color: var(--main-bg-cl);
+}
+
+.navbar li{
+
+    display: flex;
+    align-items: center;
+    text-align: center;
+    justify-items: center;
+    justify-content: center;
+    padding: 10px;
+}
+.navbar li:hover {
+    background-color: #2550AA;
+    color: white;
+    cursor: pointer;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+}

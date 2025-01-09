@@ -1,0 +1,79 @@
+/* Tailwind CSS directives */
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+:root{
+    --desc-col-txt:#29334D;
+    --main-bg-cl:#F8F8F8;
+    --main-fo-cl:#2550AA;
+    --sec-bg-cl:#007AFF;
+    --light-blue-col:#95B5F8;
+    --white-txt-col:#FFF;
+    --blackish-col:#282828;
+}
+*{
+    font-family: Inter, sans-serif;
+}
+.container{
+    display: flex;
+    justify-content: space-evenly;
+    position: relative;
+    align-items: center; 
+    width: 1600px; 
+    max-width: 100%;
+    padding: 1rem;
+    margin: auto;
+    flex-grow: 1;
+    min-height: 40vh;
+}
+@media (max-width: 1020px){
+    .container{
+        flex-grow: 1;
+        max-width: 100%;
+    }
+    
+}
+@media (max-width: 768px){
+    .container{
+        max-width: 100%;
+        flex-grow: 1;
+    }
+    
+}
+
+.section-title{
+position: absolute;
+top:8%;
+display: flex;
+justify-content: center;
+align-items: center;
+max-width: 100%;
+width: 2%;
+padding: 10px 20px 5px;
+font-family: Inter, sans-serif;
+font-weight: 700;
+font-size: 1.5rem;
+border-bottom: var(--main-fo-cl) 3px solid ;
+text-transform: uppercase;
+margin-top: 20px;
+color: var(--main-fo-cl);
+}
+
+.book-item img {
+    width: 200px;
+    height: 300px;
+    object-fit: cover;
+}
+.grid {
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); /* Customizes column sizes */
+    gap: 2rem; /* Adjust to match Figma's spacing */
+  }
+  .button button{
+    padding: 10px 20px;
+    background-color: var(--sec-bg-cl);
+    color: var(--white-txt-col);
+    border: none;
+    border-radius: 5px;
+    cursor:pointer
+    }
+
