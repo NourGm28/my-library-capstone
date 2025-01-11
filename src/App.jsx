@@ -17,7 +17,7 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
   import The_list from './components/data_store/The_list';
   import BookDetails from './components/data_store/BookDetails';
   import ReviewsData from './components/data_store/ReviewsData';
-
+    import BookCategory from './components/data_store/BookCategory';
 import './App.css'
 
 function App() {
@@ -195,14 +195,15 @@ function App() {
           <Route path="/Books_showcase" element={<Books_showcase />} />
           <Route path="/intro_categories" element={<Intro_Categories />} />
           <Route path="/contact_sect" element={<Contact_sect />} />
-          <Route path="/fantacy" element={<Fantacy />} />
-          <Route path="/fiction" element={<Fiction />} />
-          <Route path="/classic" element={<Classic />} />
-          <Route path="/children" element={<Children />} />
-          <Route path="/self_help" element={<Self_Help />} />
+          <Route path="/categories/fantacy" element={<Fantacy />} />
+          <Route path="/categories/fiction" element={<Fiction />} />
+          <Route path="/categories/classic" element={<Classic />} />
+          <Route path="/categories/children" element={<Children />} />
+          <Route path="/categories/self_help" element={<Self_Help />} />
           <Route path="/the_list" element={<The_list />} />
           <Route path="/reviews/:bookId" element={<ReviewsData books={books} />} />
           <Route path="/book-details/:bookId" element={<BookDetails />} />
+          <Route path="/categories/:category" element={<BookCategory books={books}/>} />
           <Route path="/categories" element={<Categories />} />
           <Route path="/" element={<HomePage />} />
         </Routes>

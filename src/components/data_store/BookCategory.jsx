@@ -1,22 +1,47 @@
+import { useParams } from 'react-router-dom';
+import { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
-import TheList from './TheList';
 
-const BookCategory = ({ category, books_data }) => {
-    const filteredBooks = books_data.filter((book) => book.category === category);
+const BookCategory = ({ books }) => {
+  const { category } = useParams();
+  const [filteredBooks, setFilteredBooks] = useState([]);
 
-    return (
-        <div>
-            <h2>{category} Books</h2>
-            <TheList books_data={filteredBooks} />
-        </div>
-    );
-};
-
-BookCategory.propTypes = {
-    category: PropTypes.string.isRequired,
-    books_data: PropTypes.arrayOf(PropTypes.shape({
+  BookCategory.propTypes = {
+    books: PropTypes.arrayOf(
+      PropTypes.shape({
+        id: PropTypes.number.isRequired,
+        title: PropTypes.string.isRequired,
+        author: PropTypes.string.isRequired,
         category: PropTypes.string.isRequired,
-    })).isRequired,
+      })
+    ).isRequired,
+  };
+  
+  useEffect(() => {
+    if (!Array.isArray(books)) {
+      console.error('Books data is not available or not an array');
+      return;
+    }
+    const filtered = books.filter((book) => book.category && book.category.toLowerCase() === category.toLowerCase());
+    setFilteredBooks(filtered);
+  }, [category, books]);
+
+  return (
+    <div>
+      <h1>{category} Books</h1>
+      {filteredBooks.length > 0 ? (
+        filteredBooks.map(book => (
+          <div key={book.id}>
+            <h3>{book.title}</h3>
+            <p>{book.author}</p>
+          </div>
+        ))
+      ) : (
+        <p>No books found in this category.</p>
+      )}
+    </div>
+  );
 };
+
 
 export default BookCategory;
